@@ -1,0 +1,27 @@
+
+ {% extends "product/base.html" %}
+ {% block content %}
+ <div class="container mx-auto px-4 py-10">
+   <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">Explore Our Products</h1>
+   
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+     {% for product in products %}
+       <div class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-2xl">
+         <div class="p-6 flex flex-col justify-between h-full">
+           <div>
+             <h2 class="text-2xl font-semibold text-gray-800 mb-2">{{ product.name }}</h2>
+             <p class="text-gray-500 text-sm mb-4">{{ product.description }}</p>
+           </div>
+           <div class="flex items-center justify-between">
+             <span class="text-xl font-bold text-blue-600">₹{{ product.price }}</span>
+             <a href="/checkout/{{ product.id }}/" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg shadow hover:scale-105 transform transition duration-200">
+               Buy Now
+             </a>
+           </div>
+         </div>
+       </div>
+     {% endfor %}
+   </div>
+ </div>
+ {% endblock content %}
+ 
